@@ -21,7 +21,8 @@ This web framework is created for personal uses, after two years working and upg
 git clone https://github.com/lfirebw/fireframework.git
 ```
 The project structure is:
->├── app
+```bash
+├── app
 │   └── config
 │   └── controllers
 │   └── javascript
@@ -41,11 +42,14 @@ The project structure is:
 │   └── database
 │   └── helpers
 ├── storage
+```
 
 ###### 2) Then of clone the project, open config folder and modify file of general configuration:
->├── app
+```bash
+├── app
 │   └── config
-**│   │   └── general.php**
+│   │   └── general.php <-
+```
 
 ```php
 return array(
@@ -63,10 +67,12 @@ return array(
 - **onlyRouting**: if your project required navigate only with your routing configurated then set to ***true***
 
 ###### 3) Configure the database connection:
->├── app
+```bash
+├── app
 │   └── config
 │   │   └── general.php
-**│   │   └── db.php**
+│   │   └── db.php <-
+```
 
 ```php
 return array(
@@ -80,11 +86,13 @@ return array(
 );
 ```
 ###### 3) Configure the site information:
->├── app
+```bash
+├── app
 │   └── config
 │   │   └── general.php
 │   │   └── db.php
-**│   │   └── site.php**
+│   │   └── site.php
+```
 
 ```php
 return array(
