@@ -1,0 +1,22 @@
+{
+    "name": "emmyseco/fireframework",
+    "description": "Framework web for PHP",
+    "license": "MIT License",
+    "authors": [
+        {
+            "name": "Emmy Antonio",
+            "email": "emmyseco@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+          "App\\": "app/"
+        }
+    },
+    "require": {
+        "slim/slim": "^4.1",
+        "php-di/php-di": "^6",
+        "monolog/monolog": "^1.24"
+    },
+    "require-dev": {}
+}
