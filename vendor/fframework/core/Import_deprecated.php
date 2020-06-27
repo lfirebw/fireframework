@@ -1,4 +1,7 @@
 <?php
+
+namespace Fframework\Core;
+
 class Import {
 	private static function exportfile($r, $alias = null,$name = null){
 	    if(!is_file($r)){
@@ -6,6 +9,7 @@ class Import {
 	    	return;
 	    }
 	    @require_once($r);
+	    
 	    if(!is_null($alias) && !is_null($name)){
 		    if(!class_exists($alias)){
 				class_alias($name,$alias);
@@ -23,8 +27,7 @@ class Import {
 
 	public static function Middleware($dir,$alias=null){
 		try{
-
-			self::exportfile(APP_PATH."middleware/".$dir.".class.php",$alias,$dir);	    	
+			self::exportfile(APP_PATH."library/".$dir.".php",$alias,$dir);	    	
 		}catch(Exception $e){
 			echo $e->getMessage();
 			return false;
@@ -34,7 +37,7 @@ class Import {
 	public static function Clases($dir,$alias = null){
 		try{
 
-			self::exportfile(APP_PATH.$dir.".class.php",$alias,$dir);	    		    	
+			self::exportfile(APP_PATH.$dir.".php",$alias,$dir);	    		    	
 		}catch(Exception $e){
 			echo $e->getMessage();
 			return false;

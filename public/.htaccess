@@ -1,0 +1,17 @@
+<IfModule mod_rewrite.c>
+	RewriteEngine on
+
+	#RewriteCond %{HTTP_HOST} ^localhost/bwoffice$
+	#RewriteRule ^(.*) public/$1 [L]
+
+	# Send Request via index.php
+	#RewriteCond %{REQUEST_FILENAME} !-f
+	#RewriteCond %{REQUEST_FILENAME} !-d
+	#RewriteRule ^(.*)$ public/index.php/$1 [L]
+
+	# New framework
+	
+	RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.php [QSA,L]
+</IfModule>

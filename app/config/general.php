@@ -1,8 +1,7 @@
 <?php
 return array(
-    'root' => '/',
+    'root' => '/fireframework',
     'layout' => 'default',
-    'route' => '/app',
     'isLogin' => false,
     'onlyRouting' => false
 );

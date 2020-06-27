@@ -1,5 +1,7 @@
 <?php
     $root = realpath(getcwd());
+    
+    if(basename($root) == 'public') { $root = substr($root,0, -strlen(DIRECTORY_SEPARATOR.'public')); }
 
     define("DS", DIRECTORY_SEPARATOR);
     define("ROOT",$root.DS);
@@ -13,4 +15,5 @@
     define("FRAMEWORK_PATH", VENDOR_PATH .DS."fframework".DS);
     define("DB_PATH", FRAMEWORK_PATH . "database" . DS);
     define("HELPER_PATH", FRAMEWORK_PATH . "helpers" . DS);
+    unset($root);
 ?>

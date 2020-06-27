@@ -1,5 +1,11 @@
 <?php
-class route {
+declare(strict_types=1);
+
+namespace Fframework\Core;
+
+use Slim\App;
+
+class Route {
     static private $controller;
     static private $action;
     static private $listRouting;
@@ -12,6 +18,8 @@ class route {
     static private $pathExtension;
     static private $nameExtension;
     static private $routeExtensionPath;
+    
+    static protected $App = null;
 
     private static function initVariables(){
         self::$listRouting = array();
@@ -57,9 +65,9 @@ class route {
         }	
     }
 
-    public static function importRouting(){
+    public static function importRouting($path){
         //get rules from file
-        @include_once(self::$filePath);
+        @include_once($path);
     }
     public static function verify(){
         try{
@@ -175,6 +183,9 @@ class route {
             return false;
         }
     }
+    public static function App(){
+        return static::$App;
+    }
     public static function getExtensionPath(){
         return self::$pathExtension;
     }
@@ -197,6 +208,9 @@ class route {
         if(!empty($URI)){
             self::$uri = $URI;
         }
+    }
+    public static function setApp(App $app){
+        static::$App = $app;
     }
     public static function setExtensionRoute($pathfile){	
         if(!is_file($pathfile)){	

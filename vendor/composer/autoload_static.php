@@ -16,6 +16,7 @@ class ComposerStaticInit17d00f62bcea4f69e53749b3dde8c778
         'S' => 
         array (
             'Slim\\' => 5,
+            'Selective\\BasePath\\' => 19,
         ),
         'P' => 
         array (
@@ -29,6 +30,11 @@ class ComposerStaticInit17d00f62bcea4f69e53749b3dde8c778
         array (
             'Opis\\Closure\\' => 13,
         ),
+        'N' => 
+        array (
+            'Nyholm\\Psr7\\' => 12,
+            'Nyholm\\Psr7Server\\' => 18,
+        ),
         'M' => 
         array (
             'Monolog\\' => 8,
@@ -37,8 +43,13 @@ class ComposerStaticInit17d00f62bcea4f69e53749b3dde8c778
         array (
             'Invoker\\' => 8,
         ),
+        'H' => 
+        array (
+            'Http\\Message\\' => 13,
+        ),
         'F' => 
         array (
+            'Fframework\\Core\\' => 16,
             'FastRoute\\' => 10,
         ),
         'D' => 
@@ -55,6 +66,10 @@ class ComposerStaticInit17d00f62bcea4f69e53749b3dde8c778
         'Slim\\' => 
         array (
             0 => __DIR__ . '/..' . '/slim/slim/Slim',
+        ),
+        'Selective\\BasePath\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/selective/basepath/src',
         ),
         'Psr\\Log\\' => 
         array (
@@ -82,6 +97,14 @@ class ComposerStaticInit17d00f62bcea4f69e53749b3dde8c778
         array (
             0 => __DIR__ . '/..' . '/opis/closure/src',
         ),
+        'Nyholm\\Psr7\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/nyholm/psr7/src',
+        ),
+        'Nyholm\\Psr7Server\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/nyholm/psr7-server/src',
+        ),
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
@@ -89,6 +112,14 @@ class ComposerStaticInit17d00f62bcea4f69e53749b3dde8c778
         'Invoker\\' => 
         array (
             0 => __DIR__ . '/..' . '/php-di/invoker/src',
+        ),
+        'Http\\Message\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/php-http/message-factory/src',
+        ),
+        'Fframework\\Core\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/fframework/core',
         ),
         'FastRoute\\' => 
         array (
