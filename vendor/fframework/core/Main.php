@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Fframework\Core;
 
 use Fframework\Core\Config;
+use Fframework\Core\Database;
 use Fframework\Core\Route;
 use Fframework\Core\ContainerFactory;
 use Selective\BasePath\BasePathMiddleware;
@@ -26,6 +27,9 @@ class Main
 	{
 		//load all config
 		Config::load();
+		
+		//load database
+		new Database(Config::DBConfig());
 
 		self::$CONTROLLER_PATH = APP_PATH . "controllers" .DS;
 	    self::$VIEW_PATH = APP_PATH . "views". DS;
@@ -74,6 +78,7 @@ class Main
 		Route::App()->run();
 	}
 }
+
 Main::load();
 Main::run();
 ?>

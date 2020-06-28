@@ -1,11 +1,13 @@
 <?php
 return array(
+	"driver" => 'mysql',
 	"host" => 'localhost',
-	"user" => 'root', 
+	"username" => 'root', 
 	"password" => 'root',
-	"dbname" => 'test',
+	"database" => 'test',
 	"port" => '3306',
 	"charset" => 'utf-8',
+	"collation" => 'utf8_unicode_ci',
 	"prefix" => ''
 );
 ?>
