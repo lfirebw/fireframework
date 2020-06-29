@@ -1,15 +1,14 @@
 <?php
+namespace App\Library;
 
-/**
- * Class middleware with all programming about security system for bw
- */
-class security
-{
-    const SS_KEY = "fireframework123";
+use RuntimeException;
+
+class Security {
+	const SS_KEY = "fireframework123";
     const SS_METHOD = 'aes-256-ctr';
 
-	static public function checkkey($k){
-		try{
+    static public function checkkey($k){
+    	try{
 			return true;
 		}catch(Exception $e){
 			return false;
@@ -52,7 +51,6 @@ class security
         }
         return $nonce.$ciphertext;
     }
-
     /** 
     * @param string $message - ciphertext message
     * @param string $key - encryption key (raw binary expected)

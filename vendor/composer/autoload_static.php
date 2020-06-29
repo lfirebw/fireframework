@@ -33,6 +33,7 @@ class ComposerStaticInit17d00f62bcea4f69e53749b3dde8c778
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Container\\' => 14,
             'PhpDocReader\\' => 13,
+            'PHPMailer\\PHPMailer\\' => 20,
         ),
         'O' => 
         array (
@@ -61,6 +62,7 @@ class ComposerStaticInit17d00f62bcea4f69e53749b3dde8c778
         ),
         'F' => 
         array (
+            'Fframework\\Helpers\\' => 19,
             'Fframework\\Core\\' => 16,
             'FastRoute\\' => 10,
         ),
@@ -131,6 +133,10 @@ class ComposerStaticInit17d00f62bcea4f69e53749b3dde8c778
         array (
             0 => __DIR__ . '/..' . '/php-di/phpdoc-reader/src/PhpDocReader',
         ),
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/fframework/helpers/phpmailer',
+        ),
         'Opis\\Closure\\' => 
         array (
             0 => __DIR__ . '/..' . '/opis/closure/src',
@@ -170,6 +176,10 @@ class ComposerStaticInit17d00f62bcea4f69e53749b3dde8c778
         'Http\\Message\\' => 
         array (
             0 => __DIR__ . '/..' . '/php-http/message-factory/src',
+        ),
+        'Fframework\\Helpers\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/fframework/helpers',
         ),
         'Fframework\\Core\\' => 
         array (
