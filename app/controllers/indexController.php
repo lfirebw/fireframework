@@ -14,7 +14,8 @@ class indexController{
 
 	public function index(Request $request, Response $response, array $args = []) : Response {
 		try{
-			return API::printJSON($response,200,"Request Completed",array());
+			$data = Test::all();
+			return API::printJSON($response,200,"Request Completed",$data);
 		}catch(Exception $e){
 			return $e->getMessage();
 		}
