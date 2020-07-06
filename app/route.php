@@ -10,5 +10,7 @@
     
     Route::App()->group('/', function (RouteCollectorProxy $group) {
         $group->get('', indexController::class . ':index')->setName('index');
+        $group->get('twig', indexController::class . ':twigtest')->setName('twigtest');
+        
     });
 ?>

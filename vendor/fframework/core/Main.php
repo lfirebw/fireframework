@@ -9,7 +9,10 @@ use Fframework\Core\Route;
 use Fframework\Core\ContainerFactory;
 use Selective\BasePath\BasePathMiddleware;
 use Slim\Factory\AppFactory;
+use Slim\Views\Twig;
+use Slim\Views\TwigMiddleware;
 
+date_default_timezone_set('America/Lima');
 require_once("define.php");
 include_once(VENDOR_PATH . 'autoload.php');
 
@@ -38,7 +41,7 @@ class Main
 	    self::$LAYOUT_PATH = self::$VIEW_PATH. "layout" . DS;
 		// Create the container for dependency injection.
 		try {
-		    $container = ContainerFactory::create(APP_PATH);;
+		    $container = ContainerFactory::create(APP_PATH);
 		} catch (Exception $e) {
 		    die($e->getMessage());
 		}
@@ -50,9 +53,14 @@ class Main
 		
 		if(isset(Config::GeneralConfig()['cache']) && Config::GeneralConfig()['cache'] !== false){
 			$_app->getRouteCollector()->setCacheFile(
-			    $rootPath . '/cache/routes.cache'
+			    ROOT . 'cache/routes.cache'
 			);
 		}
+		
+		// Add the twig middleware.
+		$_app->addMiddleware(
+			TwigMiddleware::create($_app, $container->get(Twig::class))
+		);
 		// Add the routing middleware.
 		$_app->addRoutingMiddleware();
 		
@@ -67,7 +75,17 @@ class Main
 		$_app->addErrorMiddleware($displayErrorDetails, $logErrors, $logErrorDetails);
 		
 		// var_dump($_app);
-
+		$http = !empty($_SERVER['HTTPS']) ? 'https://' : 'http://' ;
+		$_http_host = rtrim($_SERVER['HTTP_HOST'],'/');
+		$rootconfig = Config::GeneralConfig()['root'];
+		$base_url = "{$http}{$_http_host}{$rootconfig}";
+		//set global variables
+		$container->get(Twig::class)->getEnvironment()->addGlobal('session', $_SESSION);
+		$container->get(Twig::class)->getEnvironment()->addGlobal('rootPath', APP_PATH);
+		$container->get(Twig::class)->getEnvironment()->addGlobal('assetsPath', $base_url.'/public/assets/');
+		$container->get(Twig::class)->getEnvironment()->addGlobal('site_config', Config::SiteConfig());
+		// $container->get(Twig::class)->getEnvironment()->addGlobal('globalAssetsPath', $cms_settings['base_url'] . "assets/general/");
+		// $container->get(Twig::class)->getEnvironment()->addGlobal('lang', $lang_array);
 		Route::setApp($_app);
 	}
 	public static function run(){
