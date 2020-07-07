@@ -79,6 +79,9 @@ class Main
 		$_http_host = rtrim($_SERVER['HTTP_HOST'],'/');
 		$rootconfig = Config::GeneralConfig()['root'];
 		$base_url = "{$http}{$_http_host}{$rootconfig}";
+		
+		define('BASE_URL',$base_url);
+
 		//set global variables
 		$container->get(Twig::class)->getEnvironment()->addGlobal('session', $_SESSION);
 		$container->get(Twig::class)->getEnvironment()->addGlobal('rootPath', APP_PATH);
