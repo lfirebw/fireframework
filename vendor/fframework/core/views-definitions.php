@@ -11,9 +11,10 @@ return [
         if(isset(Config::GeneralConfig()['cache']) && Config::GeneralConfig()['cache'] !== false){
 			$cache = ROOT. 'cache';
         }
+        $_template = empty(Config::GeneralConfig()['theme']) ? 'default' : Config::GeneralConfig()['theme'];
         // Instantiate twig.
         return Twig::create(
-            APP_PATH.'views',
+            APP_PATH.'views/'.$_template,
             [
                 // 'cache' => $preferences->getRootPath() . '/cache',
                 'cache' => $cache,

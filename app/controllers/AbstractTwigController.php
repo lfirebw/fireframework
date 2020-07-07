@@ -11,7 +11,10 @@ abstract class AbstractTwigController extends AbstractController
      * @var Twig
      */
     protected $twig;
-
+    /**
+     * @var Layout
+     */
+    protected $layout;
     /**
      * AbstractController constructor.
      *
@@ -20,6 +23,7 @@ abstract class AbstractTwigController extends AbstractController
     public function __construct(Twig $twig)
     {
         $this->twig = $twig;
+        $this->layout = "layout/default.twig";
     }
 
     /**
@@ -33,6 +37,7 @@ abstract class AbstractTwigController extends AbstractController
      */
     protected function render(Response $response, string $template, array $renderData = []): Response
     {
+        $renderData['layout'] = "layout/{$this->layout}";
         return $this->twig->render($response, $template, $renderData);
     }
 }

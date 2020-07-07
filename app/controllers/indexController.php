@@ -37,7 +37,8 @@ class indexController extends AbstractTwigController{
      */
     public function twigtest(Request $request, Response $response, array $args = []): Response
     {
-        return $this->render($response, 'test.twig', [
+        $this->layout = "default.twig";
+        return $this->render($response, 'index.twig', [
             'pageTitle' => "Template html",
             'Author' => "Emmy Seco",
         ]);

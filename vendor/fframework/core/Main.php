@@ -79,15 +79,15 @@ class Main
 		$_http_host = rtrim($_SERVER['HTTP_HOST'],'/');
 		$rootconfig = Config::GeneralConfig()['root'];
 		$base_url = "{$http}{$_http_host}{$rootconfig}";
-		
+		$_template = empty(Config::GeneralConfig()['theme']) ? 'default' : Config::GeneralConfig()['theme'];
 		define('BASE_URL',$base_url);
 
 		//set global variables
 		$container->get(Twig::class)->getEnvironment()->addGlobal('session', $_SESSION);
 		$container->get(Twig::class)->getEnvironment()->addGlobal('rootPath', APP_PATH);
-		$container->get(Twig::class)->getEnvironment()->addGlobal('assetsPath', $base_url.'/public/assets/');
+		$container->get(Twig::class)->getEnvironment()->addGlobal('assetsPath', $base_url.'/public/assets/themes/'.$_template.'/');
 		$container->get(Twig::class)->getEnvironment()->addGlobal('site_config', Config::SiteConfig());
-		// $container->get(Twig::class)->getEnvironment()->addGlobal('globalAssetsPath', $cms_settings['base_url'] . "assets/general/");
+		$container->get(Twig::class)->getEnvironment()->addGlobal('globalAssetsPath', $base_url.'/public/assets/');
 		// $container->get(Twig::class)->getEnvironment()->addGlobal('lang', $lang_array);
 		Route::setApp($_app);
 	}

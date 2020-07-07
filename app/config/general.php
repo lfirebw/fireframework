@@ -3,6 +3,7 @@ return array(
     'root' => '/fireframework',
     'layout' => 'default',
     'isLogin' => false,
-    'onlyRouting' => false
+    'onlyRouting' => false,
+    'theme' => 'default'
 );
 ?>
