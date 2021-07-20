@@ -4,6 +4,8 @@ return array(
     'layout' => 'default',
     'isLogin' => false,
     'onlyRouting' => false,
-    'theme' => 'default'
+    'theme' => 'default',
+    'modules'=> [],
+    'cache' => false
 );
 ?>
