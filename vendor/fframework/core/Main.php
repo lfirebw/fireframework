@@ -85,6 +85,7 @@ class Main
 		//set global variables
 		$container->get(Twig::class)->getEnvironment()->addGlobal('session', $_SESSION);
 		$container->get(Twig::class)->getEnvironment()->addGlobal('rootPath', APP_PATH);
+		$container->get(Twig::class)->getEnvironment()->addGlobal('baseUrl',$base_url);
 		$container->get(Twig::class)->getEnvironment()->addGlobal('assetsPath', $base_url.'/public/assets/themes/'.$_template.'/');
 		$container->get(Twig::class)->getEnvironment()->addGlobal('site_config', Config::SiteConfig());
 		$container->get(Twig::class)->getEnvironment()->addGlobal('globalAssetsPath', $base_url.'/public/assets/');

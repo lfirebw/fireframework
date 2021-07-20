@@ -3,7 +3,7 @@
 
 The ``html_to_markdown`` filter converts a block of HTML to Markdown:
 
-.. code-block:: twig
+.. code-block:: html+twig
 
     {% apply html_to_markdown %}
         <html>
@@ -11,21 +11,7 @@ The ``html_to_markdown`` filter converts a block of HTML to Markdown:
         </html>
     {% endapply %}
 
-You can also add some options by passing them as an argument to the filter:
-
-.. code-block:: twig
-
-    {% apply html_to_markdown({hard_break: false}) %}
-        <html>
-            <h1>Hello!</h1>
-        </html>
-    {% endapply %}
-
-.. note::
-
-    The options are the ones provided by the ``league/html-to-markdown`` package.
-
-You can also use the filter on an included file:
+You can also use the filter on an entire template which you ``include``:
 
 .. code-block:: twig
 
@@ -38,10 +24,16 @@ You can also use the filter on an included file:
 
     .. code-block:: bash
 
-        $ composer req twig/markdown-extra
+        $ composer require twig/markdown-extra
 
-    Then, use the ``twig/extra-bundle`` on Symfony projects or add the extension
-    explicitly on the Twig environment::
+    On Symfony projects, you can automatically enable it by installing the
+    ``twig/extra-bundle``:
+
+    .. code-block:: bash
+
+        $ composer require twig/extra-bundle
+
+    Or add the extension explicitly on the Twig environment::
 
         use Twig\Extra\Markdown\MarkdownExtension;
 
@@ -61,3 +53,25 @@ You can also use the filter on an included file:
                 }
             }
         });
+
+``html_to_markdown`` is just a frontend; the actual conversion is done by one of
+the following compatible libraries, from which you can choose:
+
+* `erusev/parsedown`_
+* `league/html-to-markdown`_
+* `michelf/php-markdown`_
+
+Depending on the library, you can also add some options by passing them as an argument
+to the filter. Example for ``league/html-to-markdown``:
+
+.. code-block:: html+twig
+
+    {% apply html_to_markdown({hard_break: false}) %}
+        <html>
+            <h1>Hello!</h1>
+        </html>
+    {% endapply %}
+    
+.. _erusev/parsedown: https://github.com/erusev/parsedown
+.. _league/html-to-markdown: https://github.com/thephpleague/html-to-markdown
+.. _michelf/php-markdown: https://github.com/michelf/php-markdown

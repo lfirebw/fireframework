@@ -5,6 +5,7 @@
  *
  * @license https://github.com/slimphp/Slim/blob/4.x/LICENSE.md (MIT License)
  */
+
 declare(strict_types=1);
 
 namespace Slim\Factory;
@@ -97,6 +98,7 @@ class AppFactory
             $middlewareDispatcher ?? static::$middlewareDispatcher
         );
     }
+
     /**
      * @param ContainerInterface $container
      * @return App
@@ -153,7 +155,7 @@ class AppFactory
             if ($psr17factory::isResponseFactoryAvailable()) {
                 $responseFactory = $psr17factory::getResponseFactory();
 
-                if ($psr17factory::isStreamFactoryAvailable() || static::$streamFactory) {
+                if (static::$streamFactory || $psr17factory::isStreamFactoryAvailable()) {
                     $streamFactory = static::$streamFactory ?? $psr17factory::getStreamFactory();
                     return static::attemptResponseFactoryDecoration($responseFactory, $streamFactory);
                 }
